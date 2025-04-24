@@ -1,0 +1,85 @@
+# spotify_predictor.py
+
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.pipeline import make_pipeline
+from sklearn.metrics import accuracy_score, ConfusionMatrixDisplay
+import matplotlib.pyplot as plt
+
+
+# ─── 1. Load Data ────────────────────────────────────────────────────────────
+
+def load_data(filepath: str) -> (pd.DataFrame, pd.Series):
+    """
+    • Read CSV from `filepath` using the columns:
+        ["popularity","danceability","energy","loudness","speechiness",
+         "acousticness","instrumentalness","liveness","valence","tempo"]
+    • Drop missing values
+    • Create `banger` = (popularity >= 70)
+    • Return X (drop popularity & banger) and y (banger)
+    """
+    # TODO: implement loading, cleaning, and label creation
+    pass
+
+
+# ─── 2. Build Pipeline ───────────────────────────────────────────────────────
+
+def build_pipeline() -> make_pipeline:
+    """
+    • Standardize features
+    • RandomForestClassifier(n_estimators=200,
+                             class_weight="balanced",
+                             random_state=42)
+    • Return the assembled pipeline
+    """
+    # TODO: construct and return the sklearn Pipeline
+    pass
+
+
+# ─── 3. Train & Evaluate ────────────────────────────────────────────────────
+
+def train_and_evaluate(pipe, X_train, X_test, y_train, y_test) -> None:
+    """
+    • Fit `pipe` on X_train, y_train
+    • Predict on X_test
+    • Print accuracy
+    • Display confusion matrix (Greens colormap)
+    """
+    # TODO: fit, predict, print accuracy, plot confusion matrix
+    pass
+
+
+# ─── 4. Live Demo ────────────────────────────────────────────────────────────
+
+def live_demo(pipe, feature_names: list[str]) -> None:
+    """
+    • Loop:
+      – Read a line of 9 numeric feature values (danceability…tempo)
+      – If blank, break
+      – Validate input length
+      – Build DataFrame with `feature_names`
+      – Compute proba = pipe.predict_proba(df_live)[0,1]
+      – Label = "BANGER" if proba > threshold else "Meh"
+      – Print label and probability
+    """
+    # TODO: implement user prompts and live prediction
+    pass
+
+
+# ─── 5. Main ────────────────────────────────────────────────────────────────
+
+def main() -> None:
+    """Orchestrate loading, splitting, pipeline, evaluation, and demo."""
+    # 1) Load data
+    # 2) Split (test_size=0.3, stratify=y, random_state=42)
+    # 3) Build pipeline
+    # 4) Train & evaluate
+    # 5) Run live demo
+    pass
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,73 @@
+# hangman_lite.py
+
+import random
+
+# ─── Constants ────────────────────────────────────────────────────────────────
+
+WORDS = ["robot", "python", "gear", "sensor", "matrix", "drone"]
+MAX_TRIES = 6
+
+HANGMAN_STAGES = [
+    "",                   # 6 tries left
+    " O ",                # 5 tries left
+    " O\n | ",            # 4 tries left
+    " O\n/| ",            # 3 tries left
+    " O\n/|\\",           # 2 tries left
+    " O\n/|\\\n/  ",      # 1 try left
+    " O\n/|\\\n/ \\",     # 0 tries left (game over)
+]
+
+
+# ─── Function Definitions ────────────────────────────────────────────────────
+
+def choose_secret_word() -> str:
+    """
+    Select and return a random word from WORDS.
+    """
+    # TODO: return random.choice(WORDS)
+    pass
+
+
+def display_progress(secret: str, discovered: list[str], tries_left: int) -> None:
+    """
+    Show the current state of the game:
+      - The word with underscores for unguessed letters
+      - Hangman ASCII art for wrong guesses
+      - Number of misses remaining
+    """
+    # TODO: print the discovered letters, tries_left, and correct HANGMAN_STAGES
+    pass
+
+
+def get_player_guess(already_guessed: set[str]) -> str:
+    """
+    Prompt the player for a single-letter guess.
+    Rejects non-letters and repeats without penalty.
+    """
+    # TODO: loop until user inputs a valid new letter, then return it
+    pass
+
+
+def update_discovered(secret: str, discovered: list[str], guess: str) -> bool:
+    """
+    Reveal all occurrences of guess in discovered.
+    Returns True if guess was in secret, False otherwise.
+    """
+    # TODO: update discovered list based on guess, return whether it was a hit
+    pass
+
+
+def main() -> None:
+    """
+    Run the Hangman Lite game loop.
+    """
+    # TODO:
+    # 1) secret = choose_secret_word()
+    # 2) initialize discovered, guessed_letters, tries_left
+    # 3) while loop: display_progress, get_player_guess, update_discovered, adjust tries
+    # 4) final win/lose message
+    pass
+
+
+if __name__ == "__main__":
+    main()
